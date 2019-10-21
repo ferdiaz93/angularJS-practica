@@ -27,10 +27,7 @@ angular.module("app", ['ui.bootstrap'])
             console.log($scope.personas)
         }
         $scope.openModal = function (persona) {
-            $scope.originalPerson = Object.assign({}, persona);
-
-            $scope.nuevoNombre = persona.nombre;
-            $scope.nuevoApellido = persona.apellido;
+            $scope.objAEditar = persona;
             var modalInstance = $uibModal.open({
                 templateUrl: 'modal.html',
                 controller: 'modalController',
@@ -43,10 +40,16 @@ angular.module("app", ['ui.bootstrap'])
     })
 
     .controller('modalController', function ($scope, $uibModalInstance) {
-        $scope.edit = function (nombre, apellido) {
-            if (nombre !== "" && nombre !== undefined && apellido !== "" && apellido !== undefined) {
-                $scope.originalPerson.nombre = nombre;
-                $scope.originalPerson.apellido = apellido;                
+
+        $scope.originalPerson = Object.assign({}, $scope.objAEditar);
+
+        $scope.edit = function () {
+            if ($scope.originalPerson.nombre !== "" && 
+            $scope.originalPerson.nombre !== undefined && 
+            $scope.originalPerson.apellido !== "" && 
+            $scope.originalPerson.apellido !== undefined) {
+                $scope.objAEditar.nombre = $scope.originalPerson.nombre;
+                $scope.objAEditar.apellido = $scope.originalPerson.apellido;                
                 console.log("obj inicial",$scope.originalPerson)
                 console.log($scope.personas)
                 $scope.close();
