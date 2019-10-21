@@ -1,0 +1,26 @@
+<div class="" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Editar persona</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="close()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="exampleInputName">Nombre</label>
+                    <input ng-model="nuevoNombre" type="text" class="form-control" id="exampleInputEmail1">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputLasName">Apellido</label>
+                    <input ng-model="nuevoApellido" type="text" class="form-control" id="exampleInputLastName">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click="close()">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="edit(nuevoNombre, nuevoApellido)">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

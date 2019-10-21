@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+    <script src="ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script> -->
+
+    <title>Angular</title>
+</head>
+
+<body ng-controller="nuevoController">
+
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Nombre</label>
+        <input ng-model="nombre" type="text" class="form-control" id="exampleInputEmail1" placeholder="nombre">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Apellido</label>
+        <input ng-model="apellido" type="text" class="form-control" id="exampleInputPassword1" placeholder="apellido">
+    </div>
+    <button ng-click="add()" id="boton" class="btn btn-primary" >Agregar</button>
+    </form>
+
+
+    <ol>
+        Personas:
+        <li ng-repeat="persona in personas">
+            {{persona.nombre}} {{persona.apellido}} <button ng-click="openModal(persona)" type="button" data-toggle="modal" data-target="#exampleModal">Editar</button>
+        </li>
+    </ol>
+
+
+    <script src="controller.js"></script>
+
+</body>
+
+</html>
